@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Bar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .background1 {
+        height: 100vh;
+        background: rgb(255, 0, 76);
+        display: flex;
+        align-items: center;
+      }
+      .container {
+        height: 25rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .box {
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        background-color: rgb(177, 4, 62);
+        height: 4rem;
+        width: 80%;
+        transition: 0.5s ease-in-out;
+      }
+      .box:hover{
+          background-color: white;
+          color: rgb(255, 0, 76);
+      }
+      .box:hover p{
+          font-weight: bold;
+         color: rgb(255, 0, 76);
+        }
+      .box:hover .progress{
+        background-color: rgb(255, 0, 76);
+      }
+      .box p{
+          margin: 0rem 0.2rem;
+          width: 8rem;
+          text-align: center;
+          text-transform: uppercase;
+          color: white;
+      }
+      .sbox {
+        /* background-color: white; */
+        height: 3rem;
+        width: 96%;
+        margin: 0rem 1rem;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+      }
+      .progress{
+          height:1rem ;
+          width: 100%;
+          background-color: white;
+          border-radius: 1rem;
+          animation: animate 2s linear forwards;
+      }
+      @keyframes animate{
+          from{
+              width: 0%;
+          }
+          
+      }
+      .button{
+        padding: 1rem;
+        border: 0.2rem solid white;
+        background: rgb(255, 0, 76);
+        color: white;
+        border-radius: 0.8rem;
+        font-weight: bold;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      .button:hover{
+        color: rgb(255, 0, 76);
+        background-color: white;
+        border: 0.2rem solid rgb(177, 4, 62);
+      }
+
+      @media all and (max-width:500px){
+        .box  p{
+            font-size: 0.7rem;
+            width: 6rem;
+        }
+        .progress{
+          height: 0.6rem;
+        }
+        .sbox{
+          margin: 0 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="background1">
+      <div class="container">
+        <div class="box" id="box1">
+            <p>html</p>
+            <div class="sbox" id="sbox1">
+                <div class="progress" style="width: 0%;" id="html" ></div>
+            </div>
+        </div>
+        <div class="box" id="box2">
+            <p>css</p>
+            <div class="sbox" id="sbox2">
+                <div class="progress" style="width: 0%;" id="css" ></div>
+            </div>
+        </div>
+        <div class="box" id="box3">
+            <p>javascript</p>
+            <div class="sbox" id="sbox3">
+                <div class="progress" style="width: 0%;" id="js" ></div>
+            </div>
+        </div>
+        <div class="box" id="box4">
+            <p>jquery</p>
+            <div class="sbox" id="sbox4">
+                <div class="progress" style="width: 0%;" id="jq" ></div>                
+            </div>
+        </div>
+        <button class="button" id="btn" >Click to show progress</button>
+      </div>
+    </section>
+  </body>
+  <script src="jquery.js"></script>
+  <script>
+      $("#btn").click(function(){
+        $("#html").animate({width:'90%',},3000);
+        $("#css").animate({ width:'70%'},3000);
+        $("#js").animate({ width:'50%'},3000);
+        $("#jq").animate({ width:'30%'},3000);
+      })
+  </script>
+</html>
